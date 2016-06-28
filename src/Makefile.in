@@ -1,0 +1,10 @@
+all: ocaml_stuff interval_stuff
+	echo '-----------------------------------------'
+
+ocaml_stuff:
+	echo '-----------------------------------------'
+	@OCAML@ -version
+
+interval_stuff:
+	echo '-----------------------------------------'
+	@INTERVAL_ANALYZER@ -V
