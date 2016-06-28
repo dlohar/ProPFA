@@ -1,11 +1,11 @@
-******************************************************* ProPFA version 1 **********************************************************************
+*************************************** ProPFA version 1**********************************************************
 
 Name of the Project: ProPFA.
 Modules: 1. Range Analyzer.
          2. Invariant Generation.
          3. Path Extraction, WP and Volume Computation, and returns the overall Failure Probability with a confidence measure.
 
-***************************************************** Description of Modules *******************************************************************
+************************************ Description of Modules *******************************************************
 
 1. Range Analyzer (yet another range analyzer):
 This module is a minimalistic Range Analyzer for C-type programs. It analyzes a program statically 
@@ -38,7 +38,7 @@ generate weakest preconditions for each success path by employing WP plug-in of 
 success paths with the initial input regions. The discrete domain model counting tool `LattE' is integrated with ProPFA for
 this purpose.
 
-*************************************************************** Remarks **********************************************************************
+******************************************* Remarks *****************************************************************
 
 1. ProPFA considers uniform distribution for input variables within a specified region. It also allows discrete uniform regions
 of input variables associated with probability distribution functions.
@@ -56,7 +56,7 @@ are unrolled.
 
 It may be noted that, ProPFA is strictly limited to the limitations of the external tools it integrates with.
  
-************************************************************* Dependencies ********************************************************************
+************************************************* Dependencies ******************************************************
 
 Platform: 32 bit Ubuntu Distribution
 External Tools: 1. WP-plugin of Frama-C (Version: Neon-20140301)
@@ -66,16 +66,16 @@ External Tools: 1. WP-plugin of Frama-C (Version: Neon-20140301)
 Other Requirements: 1. Python (Version: 2.7 or higher)
                     2. OCAML (Version: 3.12.1)
 
-************************************************************* Installation ********************************************************************
+************************************************ Installation ******************************************************
 
 ./configure
 make
 
-*********************************************************** Run Instructions ******************************************************************
+********************************************** Run Instructions *************************************************
 
 ./run_script input_C_file input_latte_file
 
-*********************************************************** Input File Format ******************************************************************
+********************************************* Input File Format **************************************************
 
 ProPFA takes two input files.
 1) input_C_file: Input C file.
@@ -104,7 +104,7 @@ ProPFA takes two input files.
    200 1 0
    probabilities 0.5 0.5     
 
-************************************************************** Read Authors ********************************************************************
+****************************************** Read Authors ********************************************************
 
 Please email us bug reports!!
 The project is under constant improvement!
@@ -115,4 +115,4 @@ Name			E-mail
 3. Dibyendu Das		dibyendu@cse.iitkgp.ernet.in
 4. Soumyajit Dey	soumya@cse.iitkgp.ernet.in
 
-****************************************************************** End *************************************************************************
+************************************************** End ******************************************************
