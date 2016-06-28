@@ -40,45 +40,70 @@ string trim2(string str)                           /*invgen generates invariant 
 	return str;
 }
 	
-int main(void)
+int main(int argc, char** argv)
 {
 	int i=0;
 	string line,line2;
-	//string str2="//@ loop invariant ";
-	string str=" && ";
+	
+
+	
+	
 	system("sed -n -e '/#Invariant:/,$p' output.txt > invariant_val.txt");
-	system("sed '1d' invariant_val.txt > tmpfile"); 
-	system("mv tmpfile invariant_val.txt");
-	ifstream inFile;
-	inFile.open("invariant_val.txt");
+	ifstream inFile("invariant_val.txt");
 	getline(inFile,line);
-	line2=trim(line);
 	inFile.close();
-	ofstream outFile;
-	outFile.open("invariant_val.txt");
-	replace(line2.begin(),line2.end(),',','\n');
-	outFile << line2 << endl;
-	outFile.close();
-	ofstream outfile;
-	outfile.open("tmp.txt");
-	ifstream infile;
-	infile.open("invariant_val.txt");
-	getline(infile,line);
-	line2=trim2(line);
+	if(!line.empty())
+	{
+		
+		system("sed '1d' invariant_val.txt > tmpfile");
+		system("mv tmpfile invariant_val.txt");
+		ifstream inFile;
+		inFile.open("invariant_val.txt");
+		getline(inFile,line);
+		line2=trim(line);
+		
+		inFile.close();
+		ofstream outFile;
+		outFile.open("invariant_val.txt");
+
+		replace(line2.begin(),line2.end(),',','\n');
+		outFile << line2 << endl;
+		outFile.close();
+		ofstream outfile;
+		outfile.open("tmp.txt");
+		ifstream infile;
+		infile.open("invariant_val.txt");
+		getline(infile,line);
+		line2=trim2(line);
 
 	//line2.insert(0,str2);
-	outfile << line2;
-	while(getline(infile,line))
-	{
-		line2=trim2(line);
+		outfile << line2;
+		while(getline(infile,line))
+		{
+			line2=trim2(line);
 		//line2.insert(0,str);
 		
-		outfile << " -> " << line2;
+			outfile << " -> " << line2;
+		}
+		infile.close();
+		outfile.close();
+		if(atoi(argv[1])==1)
+		{
+			system("cat tmp.txt >> invariant.txt");
+			system("\n");
+		}	
+		else
+			system("mv tmp.txt invariant_val.txt");
 	}
-	outfile <<" ;";
-	infile.close();
-	outfile.close();
-	system("mv tmp.txt invariant.txt");
+	else
+	{
+		system(" >invariant_val.txt");
+		if(atoi(argv[1])==1)
+		{
+			system("cat invariant_val.txt >> invariant.txt");
+			system("\n");
+		}	
+	}
 	system("rm output.txt");
 	return 0;
 }
