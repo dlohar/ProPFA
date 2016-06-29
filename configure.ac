@@ -9,8 +9,8 @@ OCAML_EXECUTABLE="ocaml"
 FRAMA_C_EXECUTABLE="frama-c"
 LATTE_EXECUTABLE="integrate"
 INVGEN_EXECUTABLE="invgen"
+FRONTEND_EXECUTABLE="frontend"
 INTERVAL_ANALYZER_EXECUTABLE="yara"
-
 
 
 
@@ -91,23 +91,16 @@ LATTE="$LATTE_BIN/bin/$LATTE_EXECUTABLE"
 
 ################ INVGEN ####################
 INVGEN_BIN="`pwd`/binary/invgen"
-wget -c http://www.tcs.tifr.res.in/~agupta/invgen/invgen
 mkdir -p $INVGEN_BIN
+wget -c http://www.tcs.tifr.res.in/~agupta/invgen/invgen
 chmod +x invgen
-mv invgen $INVGEN_BIN
-INVGEN="$INVGEN_BIN/$INVGEN_EXECUTABLE"
-############################################
-
-
-################ FRONTEND ####################
-INVGEN_BIN="`pwd`/binary/frontend"
 wget -c http://www.tcs.tifr.res.in/~agupta/invgen/frontend
-mkdir -p $FRONTEND_BIN
 chmod +x frontend
-mv frontend $FRONTEND_BIN
-FRONTEND="$FRONTEND_BIN/$FRONTEND_EXECUTABLE"
+mv invgen $INVGEN_BIN
+mv frontend $INVGEN_BIN
+INVGEN="$INVGEN_BIN/$INVGEN_EXECUTABLE"
+FRONTEND="$INVGEN_BIN/$FRONTEND_EXECUTABLE"
 ############################################
-
 
 
 ################ INTERVAL_ANALYZER ####################
@@ -122,6 +115,7 @@ popd
 rm -rf yara
 INTERVAL_ANALYZER="$INTERVAL_ANALYZER_BIN/bin/$INTERVAL_ANALYZER_EXECUTABLE"
 #######################################################
+
 
 
 AC_OUTPUT([src/Makefile])
