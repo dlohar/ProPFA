@@ -67,7 +67,7 @@ Dependencies
 	- InvGen
 	- LattE (Version: latte-integrale-1.7.3)
 + Other Requirements: 
-	- Python (Version: 2.7 or higher
+	- Python (Version: 2.7 or higher)
 	- OCAML (Version: 3.12.1)
 
 Installation 
