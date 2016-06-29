@@ -101,22 +101,23 @@ ProPFA takes two input files.
 
 Here is an example of a sample `latte-input` file:
 
-Let V be the input polytope in terms of linear inequalities `(Ax<=b)` along with the distribution probabilities with the keyword **`probabilities`** after the linear inequalities for the ranges of variables `v_1` to `v_k`. The number of regions for all variables (`r_1` no. of regions for variable `v_1`, `r_2` no. of regions for variable `v_2`, ... , `r_k` no. of regions for variable `v_k`) are need to be provided in the first line as follows:
+Let V be the input polytope in terms of linear inequalities `(Ax<=b)` along with the distribution probabilities with the keyword **`probabilities`** after the linear inequalities for the ranges of variables `v_1` to `v_k`. The first line contains all the variables in some order (e.g: `v_1 < v_3 < v_2`). The number of regions for all variables (`r_1` no. of regions for variable `v_1`, `r_2` no. of regions for variable `v_2`, ... , `r_k` no. of regions for variable `v_k`) are need to be provided in the second line as follows:
 
 `d r_1 r_2 r_3 ... r_k` where, `d` being the number of input variables used.
 
 Let `V= {(x,y): [0 <= x <= 100 with probability 0.5], [100 < x <= 200 with probability 0.5], [0 <= y <= 100 with probability 0.5], [100 < y <= 100 with probability 0.5]}`. Corresponding to this, the input file will be:
 ```
-   2 2 2
-   0 -1 0
-   100 1 0
-   -100 -1 0
-   200 1 0
-   probabilities 0.5 0.5
-   100 1 0
-   -100 -1 0
-   200 1 0
-   probabilities 0.5 0.5     
+x < y
+2 2 2
+0 -1 0
+100 1 0
+-100 -1 0
+200 1 0
+probabilities 0.5 0.5
+100 1 0
+-100 -1 0
+200 1 0
+probabilities 0.5 0.5     
 ```
 
 We've provided a sample `sample_input.c` and a `latte_input` file in the directory `src`. You may modify these or use your own.
