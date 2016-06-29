@@ -52,8 +52,11 @@ are unrolled.
 10. FOR, SWITCH, DO-WHILE and ELSE-IF constructs are NOT allowed.
 11. BREAK and CONTINUE statements are NOT allowed.
 12. All variables used in a function are declared either globally or in the begining of the function.
-13. **The first line of the input program must be `void assert(int dummy_var) {}`**
-14. If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!
+13. **The first line of the input program must be**
+```c
+void assert(int dummy_var) {}
+```
+*If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!*
 
 **It may be noted that, ProPFA is strictly limited to the limitations of the external tools it integrates with.**
  
