@@ -1,0 +1,12 @@
+#ifndef PATH_H
+#define PATH_H
+
+
+#define INVGEN_PATH @INVGEN@
+#define FRONTEND_PATH @FRONTEND@
+#define FRAMA_C @FRAMA_C@
+#define LATTE @LATTE@
+
+
+
+#endif
