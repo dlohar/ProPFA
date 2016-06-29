@@ -1,2 +1,2 @@
 all:
-	cd src && mkdir GeneratedFiles ./make_script
+	cd src && mkdir GeneratedFiles && ./make_script
