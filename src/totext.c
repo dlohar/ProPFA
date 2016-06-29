@@ -16,7 +16,7 @@ extern char* yytext;
 
 FILE *yyin,*yyout;
 
-  int generate(char *filename){
+int generate(char *filename){
   	int another=0;
   	int flag=0;
 	int braces=0;
@@ -138,13 +138,15 @@ FILE *yyin,*yyout;
 }
 
 int main(int argsc,char **argsv){
-	char *filename;
+	char filename[100];
 	if(argsc<2){
 		printf("Please pass a filename to Calculate WP\n");
 		return 0;
 	}
 	int exists=0,check=0,i;
-	generate(argsv[1]);
+	strcpy(filename,"annotated_");
+	strcat(filename,argsv[1]);
+	generate(filename);
 	char process[10] = "final.out";
 	char *tokens[10];
     for(i=0;i<10;i++){
