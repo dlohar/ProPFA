@@ -60,13 +60,15 @@ are unrolled.
 Dependencies
 ------------------
 
-Platform: 32 bit Ubuntu Distribution
-External Tools: 1. WP-plugin of Frama-C (Version: Neon-20140301)
-          	2. Frontend
-		3. InvGen
-		4. LattE (Version: latte-integrale-1.7.3)
-Other Requirements: 1. Python (Version: 2.7 or higher)
-                    2. OCAML (Version: 3.12.1)
++ Platform: 32 bit Ubuntu Distribution
++ External Tools:
+	- WP-plugin of Frama-C (Version: Neon-20140301)
+	- Frontend
+	- InvGen
+	- LattE (Version: latte-integrale-1.7.3)
++ Other Requirements: 
+	- Python (Version: 2.7 or higher
+	- OCAML (Version: 3.12.1)
 
 Installation 
 ================
