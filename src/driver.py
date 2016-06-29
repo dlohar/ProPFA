@@ -2,7 +2,9 @@
 
 import subprocess, sys, json
 
-latte = open(sys.argv[1]).readlines()
+latte_input_file="latte_input"
+latte = open(latte_input_file).readlines()
+
 func_params, func_ranges = latte[0].strip().split('<'), []
 start, end, capture_start = latte[2:][0].split()[0], None, False
 for line in latte[2:]:
@@ -16,12 +18,12 @@ for line in latte[2:]:
 		func_ranges.append((start, end))
 
 params = ["./yara", "-a"]
-params.extend(sys.argv[2:])
+params.extend(sys.argv[1:])
 
 for index in range(len(func_params)):
 	params.extend([func_params[index].strip() + '=[-' + func_ranges[index][0].strip() + ',' + func_ranges[index][1].strip() + ']'])
 
-data = open(sys.argv[2], 'r').read()
+data = open(sys.argv[1], 'r').read()
 if data.find('float') != -1 or data.find('double')!= -1:
 	exit()
 
@@ -59,8 +61,8 @@ for k, v in ranges.items():
 			text += '  assume(' + var + ' <= ' + str(interval[1]) + ');\n'
 	ranges[k] = text
 
-inFile = open(sys.argv[2], 'r')
-outFile = open('annotated_' + sys.argv[2], 'w')
+inFile = open(sys.argv[1], 'r')
+outFile = open('annotated_' + sys.argv[1], 'w')
 lines = inFile.readlines()
 inBuffer, lineCount = [], 1
 index, while_list = 0, []
@@ -90,5 +92,9 @@ for line in lines:
 	inBuffer.append(line)
 	lineCount += 1
 
-outFile.write(''.join(inBuffer))
+outFile.write(''.join(inBuffer[1:]))
 outFile.close()
+
+
+params = ['./interfacing', 'annotated_' + sys.argv[1]]
+subprocess.call(params)
