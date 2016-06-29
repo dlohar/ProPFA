@@ -73,7 +73,8 @@ make
 
 ********************************************** Run Instructions *************************************************
 
-./run_script input_C_file input_latte_file
+./interfacing input_C_file
+./ProPFA input_C_file
 
 ********************************************* Input File Format **************************************************
 
