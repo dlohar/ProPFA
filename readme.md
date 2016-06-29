@@ -119,11 +119,8 @@ Read Authors
 -------------------------
 Please email us bug reports!!
 The project is under constant improvement!
+* Debasmita Lohar [debasmita.lohar@cse.iitkgp.ernet.in]
+* Anudeep Dunaboyina [danudeep@cse.iitkgp.ernet.in]
+* Dibyendu Das [dibyendud@iitkgp.ac.in]
+* Soumyajit Dey	[soumya@cse.iitkgp.ernet.in]
 
-Name			E-mail
-1. Debasmita Lohar 	debasmita.lohar@cse.iitkgp.ernet.in
-2. Anudeep Dunaboyina   danudeep@cse.iitkgp.ernet.in
-3. Dibyendu Das		dibyendu@cse.iitkgp.ernet.in
-4. Soumyajit Dey	soumya@cse.iitkgp.ernet.in
-
-************************************************** End ******************************************************
