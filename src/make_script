@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 g++ interfacing.cpp -o interfacing
 g++ invariant_input.cpp -o invariant_input
 g++ insert_invariant.cpp -o insert_inv
