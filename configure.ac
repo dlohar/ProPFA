@@ -118,5 +118,6 @@ INTERVAL_ANALYZER="$INTERVAL_ANALYZER_BIN/bin/$INTERVAL_ANALYZER_EXECUTABLE"
 
 
 
-AC_OUTPUT([src/Makefile])
+AC_OUTPUT([src/path.h])
+AC_OUTPUT([src/driver.py])
 rm config.*
