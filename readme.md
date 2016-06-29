@@ -38,23 +38,26 @@ generate weakest preconditions for each success path by employing WP plug-in of 
 success paths with the initial input regions. The discrete domain model counting tool `LattE' is integrated with ProPFA for
 this purpose.
 
-******************************************* Remarks *****************************************************************
-
+Limitations on input program 
+===============================
 1. ProPFA considers uniform distribution for input variables within a specified region. It also allows discrete uniform regions
 of input variables associated with probability distribution functions.
-
 2. ProPFA can work on real domain. It provides necessary handling before executing LattE which only works on integer domain.
-
 3. Range analysis only works for integer programs. If float values are there inside the input program it exits from this module and all loops 
 are unrolled.
-
 4. This version of ProPFA does not handle nested while loops, complex data structures like pointers, structures and function calls.
-
 5. This version of ProPFA can only handle arrays if they do not appear in the Weakest Precondition.
+6. Only SINGLE LINE comments are allowed.
+7. only INT and VOID data types are allowed.
+8. only WHILE loop and simple IF ELSE conditions are allowed.
+9. POINTERS, ARRAYS and STRUCTURES are NOT allowed.
+10. FOR, SWITCH, DO-WHILE and ELSE-IF constructs are NOT allowed.
+11. BREAK and CONTINUE statements are NOT allowed.
+12. All variables used in a function are declared either globally or in the begining of the function.
+13. **The first line of the input program must be `void assert(int dummy_var) {}`**
+14. If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!
 
-6. If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!
-
-It may be noted that, ProPFA is strictly limited to the limitations of the external tools it integrates with.
+**It may be noted that, ProPFA is strictly limited to the limitations of the external tools it integrates with.**
  
 ************************************************* Dependencies ******************************************************
 
