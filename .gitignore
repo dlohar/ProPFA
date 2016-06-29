@@ -1,0 +1,8 @@
+*.tar.gz
+!sympy*
+!mpmath*
+binary/*
+src/*.py
+src/mpmath
+src/sympy
+src/path.h

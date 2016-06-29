@@ -1,2 +1,5 @@
 all:
-	cd src && mkdir GeneratedFiles && ./make_script
+	cd src && mkdir -p GeneratedFiles && ./make_script
+
+clean:
+	cd src && make clean

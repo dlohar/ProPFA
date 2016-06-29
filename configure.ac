@@ -25,6 +25,7 @@ AC_SUBST(OCAML)
 AC_SUBST(FRAMA_C)
 AC_SUBST(LATTE)
 AC_SUBST(INVGEN)
+AC_SUBST(FRONTEND)
 AC_SUBST(INTERVAL_ANALYZER)
 
 
@@ -117,7 +118,15 @@ INTERVAL_ANALYZER="$INTERVAL_ANALYZER_BIN/bin/$INTERVAL_ANALYZER_EXECUTABLE"
 #######################################################
 
 
+###################### SYMPY ##########################
+tar -xzf mpmath-0.19.tar.gz
+tar -xzf sympy-1.0.tar.gz
+cp -rf mpmath-0.19/mpmath src
+cp -rf sympy-1.0/sympy src
+rm -rf mpmath-0.19
+rm -rf sympy-1.0
+#######################################################
 
-AC_OUTPUT([src/path.h])
-AC_OUTPUT([src/driver.py])
+
+AC_OUTPUT([src/path.h src/driver.py src/getconds.py src/modify.py])
 rm config.*

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <algorithm>
 #include <bits/stdc++.h>
+#include "path.h"
 # define max 10
 
 using namespace std;
@@ -163,8 +164,8 @@ int main(int argc, char** argv)
 			system("cat invgenInput_Inverted.c >> inverted_input_to_invgen.c");
 			system("rm invgenInput_Inverted.c");
 
-			system("./frontend -o input_to_invgen.pl -domain 2 input_to_invgen.c");
- 			system("./invgen input_to_invgen.pl > output.txt");
+			system((string(FRONTEND_PATH) + string(" -o input_to_invgen.pl -domain 2 input_to_invgen.c")).c_str());
+ 			system((string(INVGEN_PATH) + string(" input_to_invgen.pl > output.txt")).c_str());
  			system("mv input_to_invgen.pl GeneratedFiles/input_to_invgen.pl");
  			system("mv input_to_invgen.c GeneratedFiles/input_to_invgen.c");
  			system("./invariant_input 0"); //calling for the actual assert
@@ -175,8 +176,8 @@ int main(int argc, char** argv)
  			
 			
 
-			system ("./frontend -o inverted_input_to_invgen.pl -domain 2 inverted_input_to_invgen.c");
-			system("./invgen inverted_input_to_invgen.pl > output.txt");
+			system((string(FRONTEND_PATH) + string(" -o inverted_input_to_invgen.pl -domain 2 inverted_input_to_invgen.c")).c_str());
+			system((string(INVGEN_PATH) + string(" inverted_input_to_invgen.pl > output.txt")).c_str());
  			system("mv inverted_input_to_invgen.pl GeneratedFiles/inverted_input_to_invgen.pl");
  			system("mv inverted_input_to_invgen.c GeneratedFiles/inverted_input_to_invgen.c");
  			

@@ -1,6 +1,3 @@
-/*
-
-*/
 #include <iostream>
 #include <fstream>
 #include <streambuf>
@@ -13,6 +10,7 @@
 #include <vector>
 #include <fcntl.h>    /* For O_RDWR */
 #include <unistd.h>   /* For open(), creat() */
+#include "path.h"
 using namespace std;
 
 
@@ -888,7 +886,7 @@ int handle_while(std::vector<lex_class> list0, int while_at,int assert_at){
 				static int temps=1;
 				std::stringstream for_cmd;
                 cout << "Generating the WP-Conditions for the current assert........."<< endl;
-                for_cmd << "frama-c -wp -wp-timeout 50 -wp-model 'Hoare' -wp-simpl  temp.c -wp-out singlepaths/singlepath_"<<temps;
+                for_cmd << (string(FRAMA_C) + string(" -wp -wp-timeout 50 -wp-model 'Hoare' -wp-simpl  temp.c -wp-out singlepaths/singlepath_")) << temps;
                 temps++;
 			    string cmd = for_cmd.str();
 			    system(cmd.c_str());

@@ -36,7 +36,7 @@ generate weakest preconditions for each success path by employing WP plug-in of 
 success paths with the initial input regions. The discrete domain model counting tool `LattE' is integrated with ProPFA for
 this purpose.
 
-Limitations on input program 
+Limitations on input C program 
 ===============================
 1. ProPFA considers uniform distribution for input variables within a specified region. It also allows discrete uniform regions
 of input variables associated with probability distribution functions.
@@ -52,8 +52,11 @@ are unrolled.
 10. FOR, SWITCH, DO-WHILE and ELSE-IF constructs are NOT allowed.
 11. BREAK and CONTINUE statements are NOT allowed.
 12. All variables used in a function are declared either globally or in the begining of the function.
-13. **The first line of the input program must be `void assert(int dummy_var) {}`**
-14. If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!
+13. **The first line of the input program must be**
+```c
+void assert(int dummy_var) {}
+```
+*If any error occurs during installation, try downloading the dependencies individually, keep them in one folder and try!*
 
 **It may be noted that, ProPFA is strictly limited to the limitations of the external tools it integrates with.**
  
@@ -79,6 +82,7 @@ Installation
 
 Run Instructions
 ========================
+`cd src`
 
 `./driver.py <INPUT_C_FILE> <FUNCTION_NAME>`
 
@@ -88,32 +92,36 @@ Input File Format
 ======================
 
 ProPFA takes two input files.
-1) input_C_file: Input C file.
-   Format: Normal C-syntax.
-   Assertions are placed using the keyword assert.
-2) input_latte_file: Range information in an input file, name it as latte_input.
-   Format: Identical to the LattE halfspace representation.
-   Let V be the input polytope in terms of linear inequalities (Ax<=b) along with the distribution probabilities with the keyword "probabilities" 
-   after the linear inequalities for the ranges of variables v_1 to v_k. The number of regions for all variables (r_1 no. of regions for variable 
-   v_1, r_2 no. of regions for variable v_2,........, r_k no. of regions for variable v_k) are need to be provided in the first line as follows.
-   
-   d r_1 r_2 r_3 ....... r_k
-   d being the number of input variables used.
 
-   Example: Let V= {(x,y): [((x>=0, x<=100),0.5), ((x>=100, x<=200),0.5)], [((y>=0, y<=100),0.5), ((y>=100, y<=200),0.5)]}
-   and the input file will be:
+1. input_C_file: Input C file.
+	- Format: Normal C-syntax (with all the limitations mentioned above).
+	- Assertions are placed using the keyword assert.
+2. input_latte_file: Range information in an input file (**must** be named as `latte_input`).
+	- Format: Identical to the LattE halfspace representation.
+
+Here is an example of a sample `latte-input` file:
+
+Let V be the input polytope in terms of linear inequalities `(Ax<=b)` along with the distribution probabilities with the keyword **`probabilities`** after the linear inequalities for the ranges of variables `v_1` to `v_k`. The first line contains all the variables in some order (e.g: `v_1 < v_3 < v_2`). The number of regions for all variables (`r_1` no. of regions for variable `v_1`, `r_2` no. of regions for variable `v_2`, ... , `r_k` no. of regions for variable `v_k`) are need to be provided in the second line as follows:
+
+`d r_1 r_2 r_3 ... r_k` where, `d` being the number of input variables used.
+
+Let `V= {(x,y): [0 <= x <= 100 with probability 0.5], [100 < x <= 200 with probability 0.5], [0 <= y <= 100 with probability 0.5], [100 < y <= 100 with probability 0.5]}`. Corresponding to this, the input file will be:
 ```
-   2 2 2
-   0 -1 0
-   100 1 0
-   -100 -1 0
-   200 1 0
-   probabilities 0.5 0.5
-   100 1 0
-   -100 -1 0
-   200 1 0
-   probabilities 0.5 0.5     
+x < y
+2 2 2
+0 -1 0
+100 1 0
+-100 -1 0
+200 1 0
+probabilities 0.5 0.5
+100 1 0
+-100 -1 0
+200 1 0
+probabilities 0.5 0.5     
 ```
+
+We've provided a sample `sample_input.c` and a `latte_input` file in the directory `src`. You may modify these or use your own.
+
 Read Authors
 -------------------------
 Please email us bug reports!!
@@ -122,4 +130,3 @@ The project is under constant improvement!
 * Anudeep Dunaboyina [danudeep@cse.iitkgp.ernet.in]
 * Dibyendu Das [dibyendud@iitkgp.ac.in]
 * Soumyajit Dey	[soumya@cse.iitkgp.ernet.in]
-

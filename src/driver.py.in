@@ -19,7 +19,7 @@ for line in latte[2:]:
 		capture_start = True
 		func_ranges.append((start, end))
 
-params = ["./"+@INTERVAL_ANALYZER@, "-a"]
+params = ["@INTERVAL_ANALYZER@", "-a"]
 params.extend(sys.argv[1:])
 
 for index in range(len(func_params)):

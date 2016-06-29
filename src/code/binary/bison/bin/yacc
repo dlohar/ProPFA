@@ -1,2 +1,0 @@
-#! /bin/sh
-exec '/usr2/faculty/soumyajit/debasmita/ProPFA/src/code/binary/bison/bin/bison' -y "$@"
