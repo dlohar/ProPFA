@@ -74,14 +74,16 @@ Other Requirements: 1. Python (Version: 2.7 or higher)
 Installation 
 ================
 
-./configure
-make
+`./configure`
+
+`make`
 
 Run Instructions
 ========================
 
-./driver.py input_C_file function_name
-./ProPFA input_C_file
+`./driver.py <INPUT_C_FILE> <FUNCTION_NAME>`
+
+`./ProPFA <INPUT_C_FILE>`
 
 Input File Format
 ======================
@@ -101,7 +103,7 @@ ProPFA takes two input files.
 
    Example: Let V= {(x,y): [((x>=0, x<=100),0.5), ((x>=100, x<=200),0.5)], [((y>=0, y<=100),0.5), ((y>=100, y<=200),0.5)]}
    and the input file will be:
-
+```
    2 2 2
    0 -1 0
    100 1 0
@@ -112,7 +114,7 @@ ProPFA takes two input files.
    -100 -1 0
    200 1 0
    probabilities 0.5 0.5     
-
+```
 Read Authors
 -------------------------
 Please email us bug reports!!
