@@ -2,6 +2,8 @@
 
 import subprocess, sys, json
 
+subprocess.call(['cp', sys.argv[1], 'annotated_' + sys.argv[1]])
+
 latte_input_file="latte_input"
 latte = open(latte_input_file).readlines()
 
