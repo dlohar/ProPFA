@@ -74,7 +74,7 @@ Other Requirements: 1. Python (Version: 2.7 or higher)
 Installation 
 ================
 
-`./configure`
+`./configure` (It will take around 10-15mins! You go for a coffee!)
 
 `make`
 
