@@ -71,6 +71,8 @@ Dependencies
 	- LattE (Version: latte-integrale-1.7.3)
 + Other Requirements: 
 	- Python (Version: 2.7 or higher)
+	- sympy-1.0
+	- mpmath-0.19
 	- OCAML (Version: 3.12.1)
 
 Installation 
