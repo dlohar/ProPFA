@@ -1,0 +1,20 @@
+x < y < fx < fy < fz < fk
+6 1 1 1 1 1 1 
+32768 -1 0 0 0 0 0
+32767 1 0 0 0 0 0
+probabilities 1
+32768 0 -1 0 0 0 0
+32767 0 1 0 0 0 0
+probabilities 1
+32768 0 0 -1 0 0 0
+32767 0 0 1 0 0 0
+probabilities 1
+32768 0 0 0 -1 0 0
+32767 0 0 0 1 0 0
+probabilities 1
+32768 0 0 0 0 -1 0
+32767 0 0 0 0 1 0
+probabilities 1
+32768 0 0 0 0 0 -1
+32767 0 0 0 0 0 1
+probabilities 1
