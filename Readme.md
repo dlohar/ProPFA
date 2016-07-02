@@ -75,15 +75,15 @@ Dependencies
 	- mpmath-0.19
 	- OCAML (Version: 3.12.1)
 
-Installation 
-================
+Build Instructions
+=====================
 
 `./configure` (It will take around 20-30mins! You may take a break!)
 
 `make`
 
 Run Instructions
-========================
+====================
 `cd src`
 
 `./driver.py <INPUT_C_FILE> <FUNCTION_NAME>`
