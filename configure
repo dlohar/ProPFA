@@ -3597,6 +3597,8 @@ rm -rf sympy-1.0
 #######################################################
 
 
+chmod +x src/make_script
+
 ac_config_files="$ac_config_files src/path.h src/driver.py src/getconds.py src/modify.py"
 
 cat >confcache <<\_ACEOF
