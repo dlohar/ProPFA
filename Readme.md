@@ -90,6 +90,20 @@ Run Instructions
 
 `./ProPFA <INPUT_C_FILE>`
 
+Test
+====================
+For testing purpose we've provided 2 sample input files named `sample_input.c` and a `latte_input` in the directory `src`. You may modify the content of these 2 files and test with different inputs. The file `latte_input` **MUST NOT** be renamed, as it's being used internally with the same name. The file `sample_input.c` contains a single function called `test`. To run, follow the following steps :
+
+`cd src`
+
+`./driver.py sample_input.c test`
+
+`./ProPFA sample_input.c`
+
+`cd ..`
+
+`make clean`
+
 Input File Format
 ======================
 
