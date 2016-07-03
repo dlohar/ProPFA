@@ -1,5 +1,7 @@
 #!/bin/sh
-chmod +x *.py
+chmod +x driver.py
+chmod +x getconds.py
+chmod +x modify.py
 g++ interfacing.cpp -o interfacing
 g++ invariant_input.cpp -o invariant_input
 g++ insert_invariant.cpp -o insert_inv
