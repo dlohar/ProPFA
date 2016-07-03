@@ -128,5 +128,7 @@ rm -rf sympy-1.0
 #######################################################
 
 
+chmod +x src/make_script
+
 AC_OUTPUT([src/path.h src/driver.py src/getconds.py src/modify.py])
 rm config.*
