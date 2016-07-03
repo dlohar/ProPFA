@@ -1,7 +1,7 @@
 ProPFA
 =============
 * Name of the Project: ProPFA.
-* Modules:
+* Modules used:
    - Range Analyzer.
    - Invariant Generation.
    - Path Extraction, WP and Volume Computation, and returns the overall Failure Probability with a confidence measure.
@@ -109,10 +109,10 @@ Input File Format
 
 ProPFA takes two input files.
 
-1. input_C_file: Input C file.
+1. C input file: Input `C` file with the limitations mentioned above.
 	- Format: Normal C-syntax (with all the limitations mentioned above).
 	- Assertions are placed using the keyword assert.
-2. input_latte_file: Range information in an input file (**must** be named as `latte_input`).
+2. Latte input file: Range information in an input file (**MUST** be named as `latte_input`).
 	- Format: Identical to the LattE halfspace representation.
 
 Here is an example of a sample `latte-input` file:
