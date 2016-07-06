@@ -118,7 +118,7 @@ bool printprobs(){
         final_prob+=::atof(list0[i].type.c_str());
     }
 
-    cout<<"Final success probability of program is " << final_prob << endl;
+    cout<<"Failure probability of program is " << 1-final_prob << endl;
 
     return 0;
 }
@@ -451,32 +451,30 @@ void get_paths(vector<lex_class> list, vector<block> block_list,vector<int> each
                                 prevpath.reserve(previousfile.tellg());
                                 previousfile.seekg(0,std::ios::beg);
                                 prevpath.assign((std::istreambuf_iterator<char>(previousfile)),std::istreambuf_iterator<char>());
-                                cout << "recheck_path ------------\n\n" << recheck_path.size() << "\n\n\n";
-                                cout << "prevpath ------------\n\n" << prevpath.size() << "\n\n\n";
+//                                cout << "recheck_path ------------\n\n" << recheck_path.size() << "\n\n\n";
+//                                cout << "prevpath ------------\n\n" << prevpath.size() << "\n\n\n";
                                 if(recheck_path==prevpath){
                                     previousfile.close();
                                     return;
                                 }
                             }
                         }
+                        system("exec rm -r singlepaths");
+                        system("mkdir singlepaths");
                         sstm << "singlepaths/singlepath_" << z++ <<".c";
                         string result = sstm.str();
                         singlepath.open (result.c_str());
                         singlepath << path_string;
                         singlepath.close();
                         std::stringstream sstm_;
-//                        system("exec rm -r singlepaths");
-//                        system("mkdir singlepaths");
+
+
                         sstm_ << "./modify.py "<<(z-1);
                         result=sstm_.str();
-//                        system(result.c_str());
+                        cout << "executing ./modify.py " << (z-1) << endl;
+                        system(result.c_str());
 
 
-//	                        std::stringstream for_cmd;
-//                            cout << "Generating the WP-Conditions of a single path for the current assert........."<< endl;
-//	                        for_cmd << "frama-c -wp -wp-timeout 50 -wp-model 'Hoare' -wp-simpl " << result.c_str() <<" -wp-out singlepaths/singlepath_"<< assert_no<<"_"<<(z-1);
-//						    string cmd = for_cmd.str();
-//						    system(cmd.c_str());
                         cout << "Done" << endl;
                         return;
                     }
@@ -579,15 +577,7 @@ int generate(std::vector<lex_class> list0, int assert_num){
 
   }
   myfile.close();
-  /*
-  std::stringstream for_cmd;
-  char * cstr = new char [result.length()+1];
-  strcpy(cstr, result.c_str());
-  strtok(cstr,"/");
-  for_cmd << "frama-c -wp -wp-simpl -wp-out results/WP_" << strtok(NULL,".") <<" "<<  result.c_str();
-  string cmd = for_cmd.str();
-  system(cmd.c_str());
-  */
+
   if(assert_count==assert_num){
     return 1;
   }else{
@@ -1001,6 +991,7 @@ void unroll_whiles(std::vector<lex_class> list0,std::vector<while_blocks> while_
             }else{
                 system("exec rm -r singlepaths");
                 system("mkdir singlepaths");
+                cout << "executing ./modify.py 1" << endl;
                 system("./modify.py 1");
 
                 cout << "Done"<<endl;
@@ -1170,6 +1161,7 @@ int main() {
             tempfile.close();
             system("exec rm -r singlepaths");
             system("mkdir singlepaths");
+            cout << "executing ./modify.py 1"<< endl;
             system("./modify.py 1");
 
             cout << "Done"<<endl;
