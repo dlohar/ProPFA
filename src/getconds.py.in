@@ -211,8 +211,7 @@ def get_conds(a_dir,cur_dir,user_folder):
                 check=False
                 
                 while(size>=0):
-                    print final_cond.replace(' ','')
-                    print 'checking for : '+eqs[size][0]
+                    
                     final_cond=final_cond+' '
                     if(eqs[size][0]+' ' in final_cond) or (eqs[size][0]+'+' in final_cond) or (eqs[size][0]+'-' in final_cond) or (eqs[size][0]+'*' in final_cond) or (eqs[size][0]+'/' in final_cond) or (eqs[size][0]+')' in final_cond):                       
                         if( ' '+eqs[size][0] in final_cond) or ('+'+eqs[size][0] in final_cond) or ('-'+eqs[size][0] in final_cond) or ('*'+eqs[size][0] in final_cond) or ('/'+eqs[size][0] in final_cond) or ('('+eqs[size][0] in final_cond) or final_cond.startswith(eqs[size][0]):                            
@@ -223,9 +222,7 @@ def get_conds(a_dir,cur_dir,user_folder):
                             final_cond=final_cond.replace(eqs[size][0]+'/',"("+eqs[size][1]+")/")
                             final_cond=final_cond.replace(eqs[size][0]+')',"("+eqs[size][1]+"))")
                             check=True                            
-                            print final_cond.replace(' ','')
-                            print '\n\n\n'
-                            print check
+                            
                             temp_list=final_cond.split('->')
                             final_cond=''
                             for cond in temp_list:
@@ -414,7 +411,7 @@ def get_all_regions(all_vars,size,each_array,var_no,from_all_folders,order,cur_d
             pass
         lattes.close()
         input_vol =0
-        cmd = "@LATTE@ --valuation=volume " + cur_dir + "/latte_input.txt"        
+        cmd = " @LATTE@ --valuation=volume " + cur_dir + "/latte_input.txt"        
         try:
             out =subprocess.check_output(cmd,shell=True,stderr=subprocess.STDOUT)
             check_ans=True
@@ -496,7 +493,7 @@ def get_all_regions(all_vars,size,each_array,var_no,from_all_folders,order,cur_d
                 pass
             lattes.close()
             
-            cmd = "@LATTE@ --valuation=volume " + cur_dir + "/latte_input.txt"
+            cmd =  "@LATTE@ --valuation=volume " + cur_dir + "/latte_input.txt"
             covered_vol =0
             try:
                 out =subprocess.check_output(cmd,shell=True,stderr=subprocess.STDOUT)
@@ -541,7 +538,7 @@ def get_all_regions(all_vars,size,each_array,var_no,from_all_folders,order,cur_d
                     pass
                 final_path_prob+=path_prob
             elif file_[-1].startswith('ifpath'):
-                
+                get_all_regions.checkpath=True
                 get_all_regions.ifpath=float(covered_vol/input_vol)
                 print '++++++++++++ifpath '+`get_all_regions.ifpath`+'++++++++++++++++++++++++++++++++++++'
                 get_all_regions.pathprob+=get_all_regions.ifpath
@@ -562,16 +559,17 @@ def get_all_regions(all_vars,size,each_array,var_no,from_all_folders,order,cur_d
                     pass
             print '------------------------------------------------'
         
-        print '++++++++++++final_path_prob '+`final_path_prob`+'++++++++++++++++++++++++++++++++++++'
-        print '++++++++++++probability before '+`get_all_regions.probability`+'++++++++++++++++++++++++++++++++++++'
+        #print '++++++++++++final_path_prob '+`final_path_prob`+'++++++++++++++++++++++++++++++++++++'
+        #print '++++++++++++probability before '+`get_all_regions.probability`+'++++++++++++++++++++++++++++++++++++'
         get_all_regions.probability+=final_path_prob
-        print '++++++++++++probability after '+`get_all_regions.probability`+'++++++++++++++++++++++++++++++++++++'
-        print '++++++++++++inv probability after '+`get_all_regions.invprob`+'++++++++++++++++++++++++++++++++++++'
+        #print '++++++++++++probability after '+`get_all_regions.probability`+'++++++++++++++++++++++++++++++++++++'
+        #print '++++++++++++inv probability after '+`get_all_regions.invprob`+'++++++++++++++++++++++++++++++++++++'
     else:
         for i in range(0,len(all_vars[var_no][0])):
             each_array[var_no]=i
             get_all_regions(all_vars,size,each_array,var_no+1,from_all_folders,order,cur_dir)
-            
+
+get_all_regions.checkpath=False            
 get_all_regions.ifpath = 0
 get_all_regions.pathprob = 0              
 get_all_regions.probability = 0             
@@ -649,7 +647,10 @@ if __name__ == "__main__":
         total_paths=0
         writeprobs=open('ifpaths.txt','w')   
         writeprobs.truncate()
-        writeprobs.write('Path1:'+`get_all_regions.pathprob`+'\n')
+        if get_all_regions.checkpath:
+            writeprobs.write('Path1:'+`get_all_regions.pathprob`+'\n')
+        else:
+            writeprobs.write('Path1:1\n')
         writeprobs.close()    
     
     try:
