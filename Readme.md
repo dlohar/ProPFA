@@ -114,6 +114,7 @@ ProPFA takes two input files.
 	- Assertions are placed using the keyword assert.
 2. Latte input file: Range information in an input file (**MUST** be named as `latte_input`).
 	- Format: Identical to the LattE halfspace representation.
+	- Restriction: Input ranges must be in integers.
 
 Here is an example of a sample `latte-input` file:
 
