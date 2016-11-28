@@ -62,7 +62,6 @@ fi
 
 ################ FRAMA-C ####################
 FRAMA_C_BIN="`pwd`/binary/framac"
-wget -c http://frama-c.com/download/frama-c-Neon-20140301.tar.gz
 mkdir -p $FRAMA_C_BIN
 tar -xzf frama-c-Neon-20140301.tar.gz
 pushd frama-c-Neon-20140301
@@ -77,7 +76,6 @@ FRAMA_C="$FRAMA_C_BIN/bin/$FRAMA_C_EXECUTABLE"
 
 ################ LATTE ####################
 LATTE_BIN="`pwd`/binary/latte"
-wget -c https://www.math.ucdavis.edu/~latte/software/packages/latte_current/latte-integrale-1.7.3.tar.gz
 mkdir -p $LATTE_BIN
 tar -xzf latte-integrale-1.7.3.tar.gz
 pushd latte-integrale-1.7.3
@@ -93,9 +91,7 @@ LATTE="$LATTE_BIN/bin/$LATTE_EXECUTABLE"
 ################ INVGEN ####################
 INVGEN_BIN="`pwd`/binary/invgen"
 mkdir -p $INVGEN_BIN
-wget -c http://www.tcs.tifr.res.in/~agupta/invgen/invgen
 chmod +x invgen
-wget -c http://www.tcs.tifr.res.in/~agupta/invgen/frontend
 chmod +x frontend
 mv invgen $INVGEN_BIN
 mv frontend $INVGEN_BIN
@@ -106,7 +102,6 @@ FRONTEND="$INVGEN_BIN/$FRONTEND_EXECUTABLE"
 
 ################ INTERVAL_ANALYZER ####################
 INTERVAL_ANALYZER_BIN="`pwd`/binary/interval"
-wget -c https://storage.googleapis.com/dibyendu-profile.appspot.com/yara.tar.gz
 mkdir -p $INTERVAL_ANALYZER_BIN
 tar -xzf yara.tar.gz
 pushd yara
