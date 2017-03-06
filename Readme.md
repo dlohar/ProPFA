@@ -88,7 +88,7 @@ Run Instructions
 
 `./driver.py <INPUT_C_FILE> <FUNCTION_NAME>`
 
-`./ProPFA <INPUT_C_FILE>`
+`./ProPFA annotated_<INPUT_C_FILE>`
 
 Test
 ====================
